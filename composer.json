@@ -1,0 +1,17 @@
+{
+    "name": "apolm01-018/reto",
+    "authors": [
+        {
+            "name": "konny alucema",
+            "email": "lisethtorres969@gmail.com"
+        }
+    ],
+    "require": {},
+    "autoload":{
+        "psr-4": {
+            "Clases\\" : "./clases",
+            "Models\\" : "./models"
+        }
+    }
+}
+
