@@ -2,7 +2,7 @@
     namespace Models;
     class Departamento{
         protected static $conn;
-        protected static $columnsTbl=['id_Dep','name_Departamento','id_pais'];
+        protected static $columnsTbl=['id_Dep','name_departamento','id_pais'];
         private $id_Dep;
         private $name_departamento;
         private $id_pais;
@@ -44,7 +44,7 @@
             $stmt->execute();
         }
         public function updateData($data){
-            $sql = "UPDATE regions SET name_Departamento = :name_Departamento, id_pais = :id_pais where id_Dep = :id_Dep";
+            $sql = "UPDATE departamentos SET name_Departamento = :name_Departamento, id_pais = :id_pais where id_Dep = :id_Dep";
             $stmt= self::$conn->prepare($sql);
             $stmt->bindParam(':name_Departamento', $data['name_Departamento']);
             $stmt->bindParam(':id_pais', $data['id_pais']);

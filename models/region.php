@@ -1,29 +1,29 @@
 <?php 
     namespace Models;
-    class City{
+    class Region{
         protected static $conn;
-        protected static $columnsTbl=['id_city','name_city','id_region'];
-        private $id_city;
-        private $name_city;
+        protected static $columnsTbl=['id_region','name_region','id_Dep'];
         private $id_region;
+        private $name_region;
+        private $id_Dep;
         public function __construct($args=[]){
-            $this->id_city = $args['id_city'] ?? '';
-            $this->name_city = $args['name_city'] ?? '';
             $this->id_region = $args['id_region'] ?? '';
+            $this->name_region = $args['name_region'] ?? '';
+            $this->id_Dep = $args['id_Dep'] ?? '';
         }
         public function saveData($data){
             $delimiter = ":";
             $dataBd = $this->sanitizarAttributos();
             $valCols = $delimiter . join(',:',array_keys($data));
             $cols = join(',',array_keys($data));
-            $sql = "INSERT INTO cities ($cols) VALUES ($valCols)";
+            $sql = "INSERT INTO regiones ($cols) VALUES ($valCols)";
             $stmt= self::$conn->prepare($sql);
             try {
                 $stmt->execute($data);
                 $response=[[
-                    'id_city' => self::$conn->lastInsertId(),
-                    'name_city' => $data['name_city'],
-                    'id_region' => $data['id_region']
+                    'id_region' => self::$conn->lastInsertId(),
+                    'name_region' => $data['name_region'],
+                    'id_Dep' => $data['id_Dep']
                 ]];
             }catch(\PDOException $e) {
                 return $sql . "<br>" . $e->getMessage();
@@ -31,7 +31,7 @@
             return json_encode($response);
         }
         public function loadAllData(){
-            $sql = "SELECT id_city,name_city,id_region FROM cities";
+            $sql = "SELECT id_region,name_region,id_Dep FROM regiones";
             $stmt= self::$conn->prepare($sql);
             $stmt->execute();
             $countries = $stmt->fetchAll(\PDO::FETCH_ASSOC);
@@ -44,7 +44,7 @@
         public function atributos(){
             $atributos = [];
             foreach (self::$columnsTbl as $columna){
-                if($columna === 'id_city') continue;
+                if($columna === 'id_region') continue;
                 $atributos [$columna]=$this->$columna;
              }
              return $atributos;
