@@ -1,6 +1,6 @@
 (function() {
     let myHeader = new Headers({ "Content-Type": "application/json; charset:utf8" });
-    const myform = document.querySelector("#frmRegCity");
+    const myform = document.querySelector("#frmRegRegion");
     var row;
     let idCountryBorrar;
     $('#misPaises').DataTable().destroy();
@@ -53,7 +53,7 @@
             headers: myHeader,
             body: JSON.stringify(data)
         };
-        let res = await (await fetch("controllers/City/insert_data.php", config)).json();
+        let res = await (await fetch("controllers/Regiones/insert_data.php", config)).json();
         return res;
     }
     function editarData(){

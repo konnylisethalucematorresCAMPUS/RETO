@@ -1,6 +1,6 @@
 (function() {
-    const enlaces = document.querySelectorAll('.enlacecity');
-    const contenedor = document.querySelector('#uicity');
+    const enlaces = document.querySelectorAll('.enlaceregion');
+    const contenedor = document.querySelector('#uiregion');
     document.addEventListener('DOMContentLoaded', (e) => {
     });
     enlaces.forEach((val, id) => {
@@ -10,7 +10,7 @@
     // Función para cargar la página PHP
     function cargarPagina(e) {
         contenedor.innerHTML = '';
-        var url = e.target.dataset.viewcity; // Obtiene la URL del enlace
+        var url = e.target.dataset.viewregion; // Obtiene la URL del enlace
     
         // Realiza la solicitud HTTP a la página PHP utilizando fetch
         fetch(url)

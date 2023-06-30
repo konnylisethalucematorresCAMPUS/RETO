@@ -1,10 +1,10 @@
 <?php
     include_once '../../app.php';
-    use Models\City;
-    City::setConn($conn);
-    $objCity = new City();
+    use Models\Region;
+    Region::setConn($conn);
+    $objRegion = new Region();
 ?>
-<script type="text/javascript" src="view/Cities/city.js"></script>
+<script type="text/javascript" src="view/Region/region.js"></script>
 <h1>Listado de ciudades</h1>
 <section>
     <div class="container">
@@ -16,10 +16,10 @@
                     <th rowspan="1" colspan="1"></th>
             </thead>
             <tbody>
-                <?php foreach ($objCity->loadAllData() as $pais) : ?>
+                <?php foreach ($objRegion->loadAllData() as $pais) : ?>
                     <tr>
-                        <td><?php echo $pais['id_city']; ?></td>
-                        <td><?php echo $pais['name_city']; ?></td>
+                        <td><?php echo $pais['id_region']; ?></td>
+                        <td><?php echo $pais['name_region']; ?></td>
                         <td>
                             <button type="button" class="btn btn-danger btn-abrir-modal">-</button>
                             <button type="button" class="btn btn-primary btn-editar-modal">E</button>
@@ -75,7 +75,7 @@
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
             </div>
         </div>
     </div>

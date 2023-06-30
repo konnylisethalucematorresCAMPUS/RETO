@@ -4,12 +4,12 @@
     Region::setConn($conn);
     $objRegion = new Region();
 ?>
-<script type="text/javascript" src="view/Cities/city.js"></script>
+<script type="text/javascript" src="view/Regiones/region.js"></script>
 <h1>Formulario de registro</h1>
-<form id="frmRegCity">
+<form id="frmRegion">
   <div class="mb-3">
     <label for="exampleInputEmail1" class="form-label">Nombre ciudad</label>
-    <input type="text" class="form-control" id="name_city" name="name_city">
+    <input type="text" class="form-control" id="name_region" name="name_region">
   </div>
   <div class="mb-3">
     <label for="exampleInputPassword1" class="form-label">Departamentos</label>
